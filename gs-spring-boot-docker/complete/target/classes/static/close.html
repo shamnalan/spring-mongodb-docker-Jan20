@@ -1,0 +1,28 @@
+<html>
+	<head>Close Create</head>
+	<script type='text/javascript'>
+		function closeWin(){
+			//alert('This Close');
+
+			//var win = window.opener;
+			//window.opener.location.reload();
+			window.opener.postMessage('refresh', '*');
+			window.close();
+		}
+		function refreshParent() 
+		{
+			/*debugger;
+		    var loc = window.opener.location;
+		    loc.reload(true);*/
+		}
+	</script>
+	
+
+<body onunload="javascript:refreshParent()">
+	<table>
+			<tr><td>
+				<button onclick="closeWin()"> - Close - </button>
+			</td></tr>
+	</table>
+</body>
+</html>
