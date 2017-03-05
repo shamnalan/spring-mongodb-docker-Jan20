@@ -57,12 +57,14 @@ public class GreetingController {
         return lists;
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/createpage", method = RequestMethod.GET)
     public ModelAndView createPage(Locale locale, Model model) {
     	System.out.println("in /static/html");
         return new ModelAndView("/createList.html"); // NOTE here there is /someurl/resources
     }
 
+    @CrossOrigin
     @RequestMapping("/createlist")
     public ModelAndView create(@RequestParam(value="listname") String listname, 
     						   @RequestParam(value="listtype") String listtype,
@@ -73,7 +75,8 @@ public class GreetingController {
 		repository.save(new WatchList(listname, listtype, listowner));
         return new ModelAndView("/close.html");
     }
-
+    
+    @CrossOrigin
     @RequestMapping(value = "/deleteall", method = RequestMethod.GET)
     public ModelAndView deleteAll(Locale locale, Model model) {
     	//System.out.println("in /static/html");
